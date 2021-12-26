@@ -1,0 +1,68 @@
+{
+    "lower": {
+        "char": {
+            "signed": "-128",
+            "unsigned": "0"
+        },
+        "short": {
+            "signed": "-32768",
+            "unsigned": "0"
+        },
+        "int": {
+            "signed": "-2147483648",
+            "unsigned": "0"
+        },
+        "long": {
+            "signed": "-2147483648",
+            "unsigned": "0"
+        },
+        "long long": {
+            "signed": "-9223372036854775808",
+            "unsigned": "0"
+        }
+    },
+    "upper": {
+        "char": {
+            "signed": "127",
+            "unsigned": "255"
+        },
+        "short": {
+            "signed": "32767",
+            "unsigned": "65535"
+        },
+        "int": {
+            "signed": "2147483647",
+            "unsigned": "4294967295"
+        },
+        "long": {
+            "signed": "2147483647",
+            "unsigned": "4294967295"
+        },
+        "long long": {
+            "signed": "9223372036854775807",
+            "unsigned": "18446744073709551615"
+        }
+    },
+    "bits": {
+        "char": {
+            "signed": "8",
+            "unsigned": "8"
+        },
+        "short": {
+            "signed": "16",
+            "unsigned": "16"
+        },
+        "int": {
+            "signed": "32",
+            "unsigned": "32"
+        },
+        "long": {
+            "signed": "32",
+            "unsigned": "32"
+        },
+        "long long": {
+            "signed": "64",
+            "unsigned": "64"
+        }
+    }
+}

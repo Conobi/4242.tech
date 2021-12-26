@@ -1,0 +1,35 @@
+{
+  "name": "4242.tech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "posttest": "nodemon ."
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/Donokami/4242.tech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Donokami/4242.tech/issues"
+  },
+  "homepage": "https://github.com/Donokami/4242.tech#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "express": "^4.17.2",
+    "express-useragent": "^1.0.15",
+    "fs": "^0.0.1-security",
+    "image-to-ascii": "^3.0.13",
+    "image-to-ascii-art": "^0.0.4",
+    "pug": "^3.0.2",
+    "superagent": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

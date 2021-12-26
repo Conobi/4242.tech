@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  main(role="main")
+    pre.
+       _ _ ___ _ _ ___  _          _
+      | | |_  ) | |_  )| |_ ___ __| |_
+      |_  _/ /|_  _/ / |  _/ -_) _| ' \
+        |_/___| |_/___(_)__\___\__|_||_|
+    h1 Documentation
+    p
+        | To use it, you just have to:
+        br
+        .code-cpy
+          input(type="text" value="curl 4242.tech/" id="1" readonly)
+          button.copy-btn(onclick="copyToClip(1)")
+            i.fa.fa-clone
+        p or with json output:
+        .code-cpy
+          input(type="text" value="curl -X GET \"4242.tech/help?json=true\"" id="2" readonly)
+          button.copy-btn(onclick="copyToClip(2)")
+            i.fa.fa-clone
+        br
+        h3 Endpoints:
+        h4 Utils:
+        .code-cpy
+          input(type="text" value="curl 4242.tech/int" id="3" readonly)
+          button.copy-btn(onclick="copyToClip(3)")
+            i.fa.fa-clone
+        br
+        .code-cpy
+          input(type="text" value="curl 4242.tech/ctypes" id="4" readonly)
+          button.copy-btn(onclick="copyToClip(4)")
+            i.fa.fa-clone
+        br
+        | The project is
+        a(href='https://github.com/Donokami/4242.tech')  available on GitHub
+        | , feel free to contribute and add your own markdown sheets!

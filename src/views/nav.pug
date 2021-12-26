@@ -1,0 +1,11 @@
+mixin navItem(href, name)
+  - var active = href === path;
+  li.nav-item(class=`${active && "active"}`)
+    a.nav-link(href=href)= name
+      if active
+        span.sr-only (current)
+
+nav.navbar
+  .nav-content
+    +navItem("/", "Home")
+    +navItem("/help", "Documentation")

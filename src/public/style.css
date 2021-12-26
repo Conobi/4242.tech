@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background: #222838;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nav-content {
+    list-style: none;
+    display: block;
+    margin-left: 5%;
+}
+
+.nav-item {
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+    letter-spacing: 1px;
+
+    display: inline-block;
+    position: relative;
+}
+
+.active .nav-link {
+    color: rgba(34,193,195,1)!important;
+}
+
+.nav-link {
+    color: #fff!important;
+}
+
+
+.nav-link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #ffffff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+    left: 0;
+    background-color: rgba(34,193,195,1);
+}
+
+.nav-link:hover{
+    color: rgba(34,193,195,1)!important;
+}
+
+.sr-only {
+    display: none;
+}
+
+pre {
+    font-weight: bold;
+    font-size: 16px;
+    font-family: monospace;
+    color: gradiant color;
+    background: rgb(34,193,195);
+    background: linear-gradient(120deg, rgba(34,193,195,1) 0%, rgba(110,231,25,1) 100%);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+.code-cpy {
+    margin: 10px 0;
+    display: inline-block;
+    background: hsl(223.6, 24.4%, 14.6%);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+input {
+    float: left;
+    color: #fff;
+    background: transparent;
+    width: 250px;
+    border: 0;
+    outline: none;
+}
+
+.copy-btn {
+    cursor: copy;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+.copy-btn i {
+    color: #fff;
+    font-size: 17px;
+}
+
+a, a:visited {
+    color: #0883FF;
+    text-decoration: none;
+}

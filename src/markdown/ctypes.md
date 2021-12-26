@@ -34,7 +34,7 @@
 
  [33m[4m[1m• Tip : How to get these values using [33mbc[39m[33m[22m[24m[39m
 
-With [33mx[39m the size in [33mbits - 1[39m of the type, ; you can calculate these values using 
+With [33mx[39m the size in [33mbits - 1[39m of the type, ; you can calculate these values using
 bc, doing:
 [33mecho 2^x-1 | bc[39m ← Will give you the upper bound
 [33mecho -2^x | bc[39m ← Will give you the lower bound
