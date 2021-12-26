@@ -20,7 +20,7 @@ curl 4242.tech/help
 ```
 ## How does it works?
 It simply uses an express server to serve ansi text files.
-Use `curl 4242.tech/help?json=true` to get the output in JSON.
+Use `curl -X GET "4242.tech/help?json=true"` to get the output in JSON.
 
 ## Authors
 👤 [Conobi](https://kiyo.ooo/)
