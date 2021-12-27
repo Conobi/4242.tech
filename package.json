@@ -1,17 +1,18 @@
 {
   "name": "4242.tech",
   "version": "1.0.0",
-  "description": "",
+  "description": "Your favorites cheatsheets for 42 school!",
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "start": "node app.js",
     "posttest": "nodemon ."
   },
   "repository": {
     "type": "github",
     "url": "https://github.com/Donokami/4242.tech.git"
   },
-  "author": "",
+  "author": "X3ne",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Donokami/4242.tech/issues"

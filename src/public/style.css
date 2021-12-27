@@ -64,7 +64,7 @@ body::-webkit-scrollbar {
     background-color: rgba(34,193,195,1);
 }
 
-.nav-link:hover{
+.nav-link:hover, .selector:hover {
     color: rgba(34,193,195,1)!important;
 }
 
@@ -84,21 +84,42 @@ pre {
     -webkit-background-clip: text;
 }
 
+.selector {
+    color: #fff!important;
+    margin-right: 10px;
+}
+
+.actived {
+    color: rgba(34,193,195,1)!important;
+}
+
+.sep {
+    margin: 15px;
+    width: 100%;
+    height: 1px;
+    background: #ffffff;
+}
+
 .code-cpy {
+    width: 300px;
     margin: 10px 0;
-    display: inline-block;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
     background: hsl(223.6, 24.4%, 14.6%);
     padding: 10px;
     border-radius: 6px;
 }
 
 input {
-    float: left;
+    width: 100%;
+    height: auto;
     color: #fff;
     background: transparent;
-    width: 250px;
     border: 0;
     outline: none;
+    word-break: break-all;
 }
 
 .copy-btn {
@@ -109,8 +130,11 @@ input {
 }
 
 .copy-btn i {
+    color: rgb(131, 131, 131);
+    font-size: 15px;
+}
+.copy-btn:hover i {
     color: #fff;
-    font-size: 17px;
 }
 
 a, a:visited {

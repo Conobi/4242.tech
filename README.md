@@ -3,8 +3,7 @@
 | | |_  ) | |_  )| |_ ___ __| |_
 |_  _/ /|_  _/ / |  _/ -_) _| ' \
   |_/___| |_/___(_)__\___\__|_||_|
-```
-```
+
 ███████╗██╗  ██╗██████╗ ██████╗ ███████╗███████╗███████╗
 ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
 █████╗   ╚███╔╝ ██████╔╝██████╔╝█████╗  ███████╗███████╗
@@ -22,8 +21,29 @@ curl 4242.tech/help
 It simply uses an express server to serve ansi text files.
 Use `curl -X GET "4242.tech/help?json=true"` to get the output in JSON.
 
+## Dependencies
+* dotenv: `^10.0.0`,
+* express: `^4.17.2`,
+* express-useragent: `^1.0.15`,
+* fs: `^0.0.1-security`,
+* image-to-ascii: `^3.0.13`,
+* pug: `^3.0.2`,
+* superagent: `^6.1.0`
+
+**This project require graphicsmagick:**
+
+MacOS
+```
+brew install graphicsmagick
+```
+Debian/Ubuntu
+```
+sudo apt install graphicsmagick
+```
+
 ## Authors
 👤 [Conobi](https://kiyo.ooo/)
+
 👤 [X3ne](https://narcisserael.xyz)
 
 ## Contributing

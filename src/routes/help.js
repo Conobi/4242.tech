@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
             let file = fs.readFileSync(`./src/markdown/help.md`, 'utf-8');
             res.send(file);
         } else {
-            res.render('help', { pageTitle: 'Documentation' });
+            res.render('help', { pageTitle: 'Documentation', showJson: req.query.showJson });
         }
     }
 });
