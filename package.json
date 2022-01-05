@@ -1,11 +1,11 @@
 {
+  "type": "module",
   "name": "4242.tech",
   "version": "1.0.0",
   "description": "Your favorites cheatsheets for 42 school!",
   "main": "app.js",
-  "type": "module",
   "scripts": {
-    "start": "node app.js",
+    "start": "node .",
     "posttest": "nodemon ."
   },
   "repository": {
@@ -19,13 +19,20 @@
   },
   "homepage": "https://github.com/Donokami/4242.tech#readme",
   "dependencies": {
+    "cli-marked": "^5.1.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-session": "^1.17.2",
     "express-useragent": "^1.0.15",
     "fs": "^0.0.1-security",
     "image-to-ascii": "^3.0.13",
+    "marked": "^4.0.8",
+    "memorystore": "^1.6.6",
+    "passport": "^0.5.2",
+    "passport-42": "^1.2.6",
     "pug": "^3.0.2",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

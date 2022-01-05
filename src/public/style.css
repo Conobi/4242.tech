@@ -18,6 +18,10 @@ body::-webkit-scrollbar {
     top: 0;
     left: 0;
     width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
 }
 
 .nav-content {
@@ -44,7 +48,6 @@ body::-webkit-scrollbar {
     color: #fff!important;
 }
 
-
 .nav-link:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
@@ -53,7 +56,7 @@ body::-webkit-scrollbar {
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #ffffff;
+    background: #fff;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
@@ -135,6 +138,50 @@ input {
 }
 .copy-btn:hover i {
     color: #fff;
+}
+
+.wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+}
+
+.flex-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.level-bar {
+    margin: 10px;
+    height: 30px;
+    display: flex;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 2px solid rgb(131, 131, 131);
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: rgba(34,193,195,1);
+    height: 100%;
+}
+
+.user-level {
+    z-index: 9;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
 a, a:visited {

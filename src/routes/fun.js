@@ -1,7 +1,6 @@
 import imageToAscii from 'image-to-ascii';
 import superagent from 'superagent';
 
-
 async function renderFun(req, res, name) {
 
     if (name === 'waifu') {

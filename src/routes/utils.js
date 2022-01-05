@@ -1,17 +1,12 @@
 import fs from 'fs';
+import * as md from '../utils/renderMd.js';
 
 function renderUtils(req, res, name) {
-
-    if (req.query.json === 'true') {
-        let file = fs.readFileSync(`./src/json/${name}.json`, 'utf-8');
-        res.json(JSON.parse(file));
+    if (req.useragent.isCurl) {
+        let file = fs.readFileSync(`./src/markdown/${name}.md`, 'utf-8');
+        res.send(md.renderMd(file));
     } else {
-        if (req.useragent.isCurl) {
-            let file = fs.readFileSync(`./src/markdown/${name}.md`, 'utf-8');
-            res.send(file);
-        } else {
-            return (res.redirect('/'));
-        }
+        return (res.redirect('/'));
     }
 }
 

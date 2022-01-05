@@ -2,24 +2,11 @@ extends layout
 
 block content
   main(role="main")
-    pre.
-       _ _ ___ _ _ ___  _          _
-      | | |_  ) | |_  )| |_ ___ __| |_
-      |_  _/ /|_  _/ / |  _/ -_) _| ' \
-        |_/___| |_/___(_)__\___\__|_||_|
+    include ./content/pre.pug
     h1 Documentation
-    if ( showJson )
-      a(href="?showJson=true").selector.actived Json
-      a(href="/help").selector Endpoints
-    else
-      a(href="?showJson=true").selector Json
-      a(href="/help").selector.actived Endpoints
-
+      h3 Endpoints
     .sep
-    if ( showJson )
-      include ./content/json_help.pug
-    else
-      include ./content/endpoints_help.pug
+    include ./content/endpoints_help.pug
     br
     | The project is
     a(href='https://github.com/Donokami/4242.tech')  available on GitHub

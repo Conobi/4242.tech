@@ -1,8 +1,0 @@
-{
-    "description": "Welcome on 4242.tech! Here is the list of the available commands",
-    "commands": {
-        "ctypes": "The sizes of the different types in C.",
-        "int": "Alias to ctypes",
-        "help": "Get this current help"
-    }
-}

@@ -1,5 +1,5 @@
-import fs from 'fs';
 import express from 'express';
+import fs from 'fs';
 import renderTemplate from '../utils/templateRender.js';
 import * as md from '../utils/renderMd.js';
 const router = express.Router();
@@ -9,7 +9,8 @@ router.get('/', async (req, res) => {
         let file = fs.readFileSync(`./src/markdown/help.md`, 'utf-8');
         res.send(md.renderMd(file));
     } else {
-        renderTemplate(res, req, 'index', 'Home');
+        if (!req.isAuthenticated()) res.redirect('/login');
+        renderTemplate(res, req, 'account', 'Account');
     }
 });
 
