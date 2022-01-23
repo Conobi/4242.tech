@@ -1,13 +1,11 @@
-import imageToAscii from 'image-to-ascii';
-import superagent from 'superagent';
+const imageToAscii = require('image-to-ascii');
+const superagent = require('superagent');
 
 async function renderFun(req, res, name) {
-
     if (name === 'waifu') {
         if (req.useragent.isCurl) {
             let {body} = await superagent
             .get(`https://nekos.life/api/v2/img/waifu`);
-
             imageToAscii(body.url, {
                 pxWidth: 1,
                 size: {
@@ -27,4 +25,4 @@ async function renderFun(req, res, name) {
     }
 }
 
-export default renderFun;
+module.exports = renderFun;

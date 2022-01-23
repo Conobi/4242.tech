@@ -1,13 +1,12 @@
 extends layout
 
 block content
-  main(role="main")
-    include ./content/pre.pug
-    h1 Documentation
-      h3 Endpoints
-    .sep
-    include ./content/endpoints_help.pug
-    br
-    | The project is
-    a(href='https://github.com/Donokami/4242.tech')  available on GitHub
-    | , feel free to contribute and add your own markdown sheets!
+    main(role="main")
+        include ./content/pre.pug
+        h1 Documentation
+        .sep
+        include ./content/endpoints_help.pug
+        br
+        | The project is
+        a(href='https://github.com/Donokami/4242.tech')  available on GitHub
+        | , feel free to contribute and add your own markdown sheets!

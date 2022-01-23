@@ -9,7 +9,3 @@ nav.navbar
     .nav-content
         +navItem("/", "Home")
         +navItem("/help", "Documentation")
-        if user
-            +navItem("/account", "Account")
-        else
-            +navItem("/login", "Login")

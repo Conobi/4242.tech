@@ -1,15 +1,15 @@
 doctype html
 html(lang="fr")
-  head
-    block head
-      meta(charset="utf-8")
-      meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-      meta(name="description" content="Your favorites cheatsheets for 42 school!")
-      title #{pageTitle}#{titleSep}#{siteTitle}
-      link(rel="stylesheet" href="/style.css")
-      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-  body
-    include nav.pug
-    block content
-    block scripts
-      script(src="/script.js")
+    head
+        block head
+            meta(charset="utf-8")
+            meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+            meta(name="description" content="Your favorites cheatsheets for 42 school!")
+            title #{pageTitle}#{titleSep}#{siteTitle}
+            link(rel="stylesheet" href="/style.css")
+            link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    body
+        include nav.pug
+        block content
+        block scripts
+            script(src="/script.js")

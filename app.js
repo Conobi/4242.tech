@@ -1,6 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
-import { createServer } from './src/server.js';
+require('dotenv').config();
+const { createServer } = require('./src/server.js');
 const server = createServer();
 
 server.listen(process.env.PORT, () => {

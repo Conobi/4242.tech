@@ -1,5 +1,0 @@
----
-aliase: int
----
-
-wdsdcf

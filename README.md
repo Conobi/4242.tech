@@ -19,16 +19,18 @@ curl 4242.tech/help
 ```
 ## How does it works?
 It simply uses an express server to serve ansi text files.
-Use `curl -X GET "4242.tech/help?json=true"` to get the output in JSON.
 
 ## Dependencies
-* dotenv: `^10.0.0`,
-* express: `^4.17.2`,
-* express-useragent: `^1.0.15`,
-* fs: `^0.0.1-security`,
-* image-to-ascii: `^3.0.13`,
-* pug: `^3.0.2`,
-* superagent: `^6.1.0`
+* cli-marked: `^5.1.0`
+* dotenv: `^10.0.0`
+* express: `^4.17.2`
+* express-useragent: `^1.0.15`
+* fs: `^0.0.1-security`
+* image-to-ascii: `^3.0.13`
+* marked: `^4.0.10`
+* morgan: `^1.10.0`
+* pug: `^3.0.2`
+* superagent: `^7.1.1`
 
 **This project require graphicsmagick:**
 
