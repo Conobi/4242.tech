@@ -21,6 +21,7 @@ curl 4242.tech/help
 It simply uses an express server to serve ansi text files.
 
 ## Dependencies
+* 42-api.js: `^1.0.1`
 * cli-marked: `^5.1.0`
 * dotenv: `^10.0.0`
 * express: `^4.17.2`

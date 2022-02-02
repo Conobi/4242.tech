@@ -19,7 +19,7 @@ const createServer = () => {
     app.set('views', path.join(__dirname, '/views'));
     app.use(express.static(path.join(__dirname, '/public')));
     // app.disable('view cache'); // Debug
-    app.use(useragent.express()); // Determine user agent for rendering purposes (e.g. curl or browser)
+    app.use(useragent.express()); // Init user agent for rendering purposes (e.g. curl or browser)
     app.use(morgan('tiny')); // HTTP request logger
 
     app.use((req, res, next) => {
