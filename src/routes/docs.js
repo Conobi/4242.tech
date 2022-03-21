@@ -1,28 +1,32 @@
-const fs = require('fs');
-const path = require('path');
-const { renderMd } = require('../utils/renderMd.js');
+const fs = require('fs')
+const path = require('path')
+const { renderMd } = require('../utils/renderMd')
 
-function docsCurl(req, res, splited) {
-    if (splited[splited.length - 1] === '') _path = splited.slice(0, splited.length - 1).join('/');
-    else _path = res.locals.path;
+async function docsCurl(req, res, splited) {
+    if (splited[splited.length - 1] === '')
+        _path = splited.slice(0, splited.length - 1).join('/')
+    else
+        _path = res.locals.path
+    if (_path === '/')
+        _path = '/help'
 
     if (fs.existsSync(`./src/markdown${_path}.md`)) {
-        let file = fs.readFileSync(`./src/markdown${_path}.md`, 'utf-8');
-        res.send(renderMd(file));
+        let file = fs.readFileSync(`./src/markdown${_path}.md`, 'utf-8')
+        res.send(await renderMd(file))
     } else {
-        let file = fs.readFileSync(`./src/markdown/help.md`, 'utf-8');
-        res.send(renderMd(file));
+        let file = fs.readFileSync(`./src/markdown/404.md`, 'utf-8')
+        res.send(await renderMd(file))
     }
 }
 
 function docsBrowser(req, res, splited) {
     if (splited[splited.length - 1] === '') {
-        _path = splited.slice(0, splited.length - 1).join('/');
-        _name = splited[splited.length - 2];
+        _path = splited.slice(0, splited.length - 1).join('/')
+        _name = splited[splited.length - 2]
         console.log('name' + _name)
     } else {
-        _path = res.locals.path;
-        _name = splited[splited.length - 1];
+        _path = res.locals.path
+        _name = splited[splited.length - 1]
     }
 
     if (res.locals.path === '/') {
@@ -39,13 +43,13 @@ function docsBrowser(req, res, splited) {
     }
     console.log(_path)
     if (fs.existsSync(`./src/views${data.template}.pug`)) {
-        res.render(path.resolve(`./src/views${data.template}.pug`), { pageTitle: data.pageTitle });
+        res.render(path.resolve(`./src/views${data.template}.pug`), { pageTitle: data.pageTitle })
     } else {
-        res.redirect('/404');
+        res.redirect('/404')
     }
 }
 
 module.exports = {
     docsCurl,
     docsBrowser
-};
+}

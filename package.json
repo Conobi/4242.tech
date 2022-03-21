@@ -18,14 +18,14 @@
   "homepage": "https://github.com/Donokami/4242.tech#readme",
   "dependencies": {
     "42-api.js": "^1.0.1",
-    "cli-marked": "^5.1.0",
+    "axios": "^0.26.1",
+    "cli-marked": "github:Donokami/cli-marked",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "express-useragent": "^1.0.15",
     "fs": "^0.0.1-security",
     "image-to-ascii": "^3.0.13",
     "json2md": "^1.12.0",
-    "marked": "^4.0.10",
     "morgan": "^1.10.0",
     "pug": "^3.0.2",
     "superagent": "^7.1.1"
