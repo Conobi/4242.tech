@@ -2,17 +2,31 @@ extends layout
 
 block content
     main(role="main")
-        include ./content/pre.pug
+        include pre.pug
         b 4242.tech
         |  is a simple wiki to access command line cheat sheets, to simplify your life at 42 School.
         br
         | To use it, you just have to:
         br
         .code-cpy
-            input(type="text" value="curl 4242.tech/help" id="1" readonly)
+            input.copy-input(type="text" value="curl 4242.tech/help" id="1" readonly)
             button.copy-btn(onclick="copyToClip(1)")
                 i.fa.fa-clone
         br
         | The project is
         a(href='https://github.com/Donokami/4242.tech')  available on GitHub
         | , feel free to contribute and add your own markdown sheets!
+        h3 Documentation pages:
+        ul
+        each val, key in docs
+            if val.web
+                li
+                    a(href=val.helpEndpoint)
+                        code 4242.tech/#{val.helpEndpoint}:
+                    |  #{val.helpDesc}
+        h3 Utils pages:
+        ul
+        each val, key in utils
+            li
+                code 4242.tech/#{val.helpEndpoint}:
+                |  #{val.helpDesc}

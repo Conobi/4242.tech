@@ -1,8 +1,11 @@
 const fs = require('fs')
-const path = require('path')
 const { renderMd } = require('../utils/renderMd')
+const { throw404 } = require('../utils/throw404')
+const settings = require('../settings')
 
-async function docsCurl(req, res, splited) {
+async function docs(req, res, splited) {
+    let _path
+
     if (splited[splited.length - 1] === '')
         _path = splited.slice(0, splited.length - 1).join('/')
     else
@@ -10,46 +13,20 @@ async function docsCurl(req, res, splited) {
     if (_path === '/')
         _path = '/help'
 
-    if (fs.existsSync(`./src/markdown${_path}.md`)) {
-        let file = fs.readFileSync(`./src/markdown${_path}.md`, 'utf-8')
-        res.send(await renderMd(file))
-    } else {
-        let file = fs.readFileSync(`./src/markdown/404.md`, 'utf-8')
-        res.send(await renderMd(file))
-    }
-}
+    const fileExists = Object.keys(settings.docs).includes(_path) && fs.existsSync(`./src/markdown${_path}.md`)
+    if (!fileExists || (!req.useragent.isCurl && !settings.docs[_path].web))
+        return throw404(req, res)
+    const file = fs.readFileSync(`./src/markdown${_path}.md`, 'utf-8')
 
-function docsBrowser(req, res, splited) {
-    if (splited[splited.length - 1] === '') {
-        _path = splited.slice(0, splited.length - 1).join('/')
-        _name = splited[splited.length - 2]
-        console.log('name' + _name)
-    } else {
-        _path = res.locals.path
-        _name = splited[splited.length - 1]
-    }
-
-    if (res.locals.path === '/') {
-        data = {
-            "template": '/index',
-            "pageTitle": 'Home'
-        }
-    } else {
-        data = {
-            "template": _path,
-            // Capitalize first letter of endpoint to display as siteTitle
-            "pageTitle": _name.charAt(0).toUpperCase() + _name.slice(1)
-        }
-    }
-    console.log(_path)
-    if (fs.existsSync(`./src/views${data.template}.pug`)) {
-        res.render(path.resolve(`./src/views${data.template}.pug`), { pageTitle: data.pageTitle })
-    } else {
-        res.redirect('/404')
-    }
+    if (req.useragent.isCurl)
+        res.send(await renderMd(file, req))
+    else
+        res.render('md.pug', {
+            props: settings.docs[_path],
+            md: await renderMd(file, req)
+        })
 }
 
 module.exports = {
-    docsCurl,
-    docsBrowser
+    docs
 }

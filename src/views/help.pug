@@ -2,11 +2,33 @@ extends layout
 
 block content
     main(role="main")
-        include ./content/pre.pug
+        include pre.pug
         h1 Documentation
-        .sep
-        include ./content/endpoints_help.pug
         br
         | The project is
         a(href='https://github.com/Donokami/4242.tech')  available on GitHub
         | , feel free to contribute and add your own markdown sheets!
+        p
+        | To use it, you just have to:
+        br
+        .code-cpy
+            input.copy-input(type="text" value="curl 4242.tech/" id="1" readonly)
+            button.copy-btn(onclick="copyToClip(1)")
+                i.fa.fa-clone
+        br
+        h3 Documentation pages:
+        each val, key in docs
+            .endpoint
+                .code-cpy
+                    input.copy-input(type="text" value="curl 4242.tech/" + val.helpEndpoint id=key readonly)
+                    button.copy-btn(onclick="copyToClip('" + key + "')")
+                        i.fa.fa-clone
+                p.code-desc #{val.helpDesc}
+        h3 Utils pages:
+        each val, key in utils
+            .endpoint
+                .code-cpy
+                    input.copy-input(type="text" value="curl 4242.tech/" + val.helpEndpoint id=key readonly)
+                    button.copy-btn(onclick="copyToClip('" + key + "')")
+                        i.fa.fa-clone
+                p.code-desc #{val.helpDesc}

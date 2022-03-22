@@ -1,13 +1,11 @@
 const express = require('express')
 const path = require('path')
 const useragent = require('express-useragent')
-const fs = require('fs')
 const morgan = require('morgan')
 const settings = require('./settings')
-const { renderMd } = require('./utils/renderMd')
+const router = require('./router')
+const { throw404 } = require('./utils/throw404')
 const app = express()
-
-const router = require('./routes/router')
 
 const createServer = () => {
 
@@ -29,12 +27,7 @@ const createServer = () => {
 
     // Router
     app.get('/404', async (req, res) => {
-        if (req.useragent.isCurl) {
-            let file = fs.readFileSync(`./src/markdown/404.md`, 'utf-8')
-            res.send(await renderMd(file))
-        } else {
-            res.status(404).render('404.pug', { pageTitle: '404' })
-        }
+        throw404(req, res)
     })
 
     app.use('*', router)

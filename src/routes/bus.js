@@ -1,7 +1,8 @@
 const superagent = require('superagent')
+const json2md = require('json2md')
 const { renderMd } = require('../utils/renderMd')
-const json2md = require("json2md")
-const fs = require('fs')
+const { throw404 } = require('../utils/throw404')
+const settings = require('../settings')
 
 
 // Format date for API request (YYYYMMDDTHHMMSS)
@@ -57,6 +58,7 @@ async function apiFetch(date, options) {
             .set({ 'Referer': 'tcl.fr' })
             .set('accept', 'json')
             .end((err, res) => {
+                // if (err) return
                 if (res.statusCode != 200) return resolve({
                     'error': res.status
                 })
@@ -68,15 +70,12 @@ async function apiFetch(date, options) {
 async function fetchBusSchedule(req, res, splited) {
     const date = formatApiDate(new Date())
     // Get schedules for Gorge de loup -> Campus
-    const gc = await apiFetch(date, `stop=stop_point:tcl:SP:39474&route=route:tcl:${splited[2]}-F`)
+    const gc = await apiFetch(date, `stop=stop_point:tcl:SP:39474&route=route:tcl:86-F`)
     // Get schedules for Campus -> Gorge de loup
-    const cg = await apiFetch(date, `stop=stop_point:tcl:SP:2010&route=route:tcl:${splited[2]}-B`)
+    const cg = await apiFetch(date, `stop=stop_point:tcl:SP:2010&route=route:tcl:86-B`)
 
-    if (cg.error || gc.error)
-    {
-        let file = fs.readFileSync(`./src/markdown/404.md`, 'utf-8')
-        return res.send(await renderMd(file))
-    }
+    if (gc.error || cg.error)
+        return throw404(req, res)
 
     // Get all schedules for the given stop point
     const schedules = (data) => {
@@ -89,26 +88,37 @@ async function fetchBusSchedule(req, res, splited) {
 
     // Parse data to get [['a', 'b'], ['a', 'b']] format
     const finalRows = () => {
-        const gc_rows = schedules(gc)
-        const cg_rows = schedules(cg)
+        const gcRows = schedules(gc)
+        const cgRows = schedules(cg)
 
         let finalRows = []
-        for (i = 0; i < cg_rows.length; i++) {
-            finalRows.push([gc_rows[i], cg_rows[i]])
+        for (i = 0; i < (cgRows.length > gcRows.length ? cgRows.length : gcRows.length); i++) {
+            let _1 = gcRows[i] ? gcRows[i] : '-'
+            let _2 = cgRows[i] ? cgRows[i] : '-'
+            finalRows.push([_1, _2])
         }
         return finalRows
     }
 
     const md = json2md([
-        { "h1": `Bus ${splited[2]}` },
+        { "h1": `Bus 86` },
         { "p": `🚌 Schedule for ${new Date().toLocaleTimeString('fr', { hour: 'numeric', minute: 'numeric'})}` },
         { "table": {
             headers: ['Gorge de loup -> Campus', 'Campus -> Gorge de loup'],
             rows: finalRows()
         }}
     ])
-    res.send(await renderMd(md))
-}
+    if (req.useragent.isCurl)
+        res.send(await renderMd(md, req))
+    else if (req.query.json)
+        res.json({
+            '86': {
+                'Gorge de loup -> Campus': schedules(gc),
+                'Campus -> Gorge de loup': schedules(cg),
+            }
+        })
+    else
+        res.render('md.pug', { props: settings.utils['bus86'], md: await renderMd(md, req)})}
 
 module.exports = {
     fetchBusSchedule
