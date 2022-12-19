@@ -6,9 +6,9 @@ async function helpRenderer(req, res, splited) {
 	if (!req.useragent.isCurl)
 		return res.render(path.resolve(`./src/views/help.pug`), { props: settings.docs['/help']})
 	let md = `
-Welcome on **4242.tech**! Here is the list of the available commands:
+Welcome on **42.kiyo.ooo**! Here is the list of the available commands:
 
-\`4242.tech\`
+\`42.kiyo.ooo\`
 `
 	Object.keys(settings.docs).map((page, index) => {
 		let prefix = '├── '

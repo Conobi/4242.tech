@@ -12,10 +12,10 @@
 ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
 ```
 
-**4242.tech** is a simple command-line markdown wiki to access command line cheatsheets, to simplify your life at 42 School.
+**42.kiyo.ooo** is a simple command-line markdown wiki to access command line cheatsheets, to simplify your life at 42 School.
 To use it, you just have to:
 ```
-curl 4242.tech/help
+curl 42.kiyo.ooo/help
 ```
 ## How does it works?
 It simply uses an express server to serve ansi text files.

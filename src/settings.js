@@ -1,5 +1,5 @@
 module.exports = {
-    siteTitle: '4242.tech',
+    siteTitle: '42.kiyo.ooo',
     titleSep: ' - ',
     docs: {
         '/max': {

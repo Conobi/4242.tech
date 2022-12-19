@@ -6,13 +6,13 @@ block content
         h1 Documentation
         br
         | The project is
-        a(href='https://github.com/Donokami/4242.tech')  available on GitHub
+        a(href='https://github.com/Donokami/42.kiyo.ooo')  available on GitHub
         | , feel free to contribute and add your own markdown sheets!
         p
         | To use it, you just have to:
         br
         .code-cpy
-            input.copy-input(type="text" value="curl 4242.tech/" id="1" readonly)
+            input.copy-input(type="text" value="curl 42.kiyo.ooo/" id="1" readonly)
             button.copy-btn(onclick="copyToClip(1)")
                 i.fa.fa-clone
         br
@@ -20,7 +20,7 @@ block content
         each val, key in docs
             .endpoint
                 .code-cpy
-                    input.copy-input(type="text" value="curl 4242.tech/" + val.helpEndpoint id=key readonly)
+                    input.copy-input(type="text" value="curl 42.kiyo.ooo/" + val.helpEndpoint id=key readonly)
                     button.copy-btn(onclick="copyToClip('" + key + "')")
                         i.fa.fa-clone
                 p.code-desc #{val.helpDesc}
@@ -28,7 +28,7 @@ block content
         each val, key in utils
             .endpoint
                 .code-cpy
-                    input.copy-input(type="text" value="curl 4242.tech/" + val.helpEndpoint id=key readonly)
+                    input.copy-input(type="text" value="curl 42.kiyo.ooo/" + val.helpEndpoint id=key readonly)
                     button.copy-btn(onclick="copyToClip('" + key + "')")
                         i.fa.fa-clone
                 p.code-desc #{val.helpDesc}

@@ -20,7 +20,7 @@ async function fetchChecklists(req, res, splited) {
 We share these from the [mharriso's repo school21-checklists](https://github.com/mharriso/school21-checklists).
 Feel free to contribute to it.
 **\`Warning:\`** *These subjects are often updated by 42 pedago, these pages might be outdated.*
-*Tip: You can search for a subject by typing \n\`curl 4242.tech/checklists/<part of the project name>\`*
+*Tip: You can search for a subject by typing \n\`curl 42.kiyo.ooo/checklists/<part of the project name>\`*
 ## Subject list:
 `
 	const rawLink = 'https://raw.githubusercontent.com/mharriso/school21-checklists/master/'
@@ -45,7 +45,7 @@ Feel free to contribute to it.
 	// 	})
 	if (!fileList.length)
 		return throw404(req, res)
-	const redirLink = 'https://4242.tech/checklists/'
+	const redirLink = 'https://42.kiyo.ooo/checklists/'
 	fileList.forEach(element => {
 		let link = redirLink + encodeURIComponent(element).replace(/'/g, "%27")
 		md += `- **${element.replace(/\.[^/.]+$/, '')}**: \n\t- [${link}](${link})\n`
